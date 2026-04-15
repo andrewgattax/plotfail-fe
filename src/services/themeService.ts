@@ -86,8 +86,8 @@ class ThemeService {
 
 // Create and export a singleton instance
 export const themeService = new ThemeService({
-  defaultTheme: "light",
-  detectFromBrowser: true,
+  defaultTheme: "dark",
+  detectFromBrowser: false,
 });
 
 export { ThemeService };
