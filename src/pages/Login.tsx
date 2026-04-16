@@ -10,7 +10,6 @@ function Login() {
         </div>
         <h1 className={"text-2xl font-bold text-white text-glow-white"}>Inizia la cacca</h1>
         <p className={"text-foreground/50 text-center text-sm"}>SALVA LE TUE STORIE E CONDIVIDILE COL MONDO</p>
-
       </div>
     </div>
   );

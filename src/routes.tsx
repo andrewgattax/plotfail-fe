@@ -3,6 +3,7 @@ import { Home } from "@/pages/Home";
 import Login from "@/pages/Login.tsx";
 import NotFound from "@/pages/NotFound.tsx";
 import Footer from "@/components/footer.tsx";
+import LoginGay from "@/pages/LoginGay.tsx";
 
 function Layout() {
   return (
@@ -23,7 +24,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        Component: Login,
+        Component: LoginGay,
       },
       {
         path: "*",
