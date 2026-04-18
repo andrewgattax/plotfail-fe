@@ -7,11 +7,14 @@ import React, {useState} from 'react';
   import {Button} from "@/components/ui/button.tsx";
   import {ApiError, utenteService} from "@/api";
   import {router} from "@/routes.tsx";
-  import {Link} from "react-router-dom";
+  import {Link} from "react-router";
+import {useUser} from "@/context/UserContext.tsx";
 
   function Login() {
 
     type LoginData = z.infer<typeof LoginRequestSchema>
+
+    const { loadFromJwt } = useUser();
 
     const [serverError, setServerError] = useState("");
 
@@ -27,9 +30,10 @@ import React, {useState} from 'react';
     })
 
   const onSubmit = async (data: LoginData) => {
+    setServerError("")
     try {
       let response = await utenteService.login(data)
-      console.log(response.token)
+      loadFromJwt(response.token)
       await router.navigate("/")
     } catch (error) {
       if(error instanceof ApiError) {
@@ -56,6 +60,7 @@ import React, {useState} from 'react';
           <input
             type={"text"}
             placeholder={"Username"}
+            autoComplete="username"
             {...register("username")}
             className={"w-full bg-white/5 border rounded-2xl p-4 text-sm focus:outline-none focus:ring-2 focus:border-transparent " + (errors.username?.message ? "border-red-500 focus:ring-red-500 text-destructive" : "border-white/20 focus:ring-primary text-white")}
           />
@@ -65,6 +70,7 @@ import React, {useState} from 'react';
           <input
             type={"password"}
             placeholder={"Password"}
+            autoComplete="current-password"
             {...register("password")}
             className={"w-full bg-white/5 border rounded-2xl p-4 text-sm focus:outline-none focus:ring-2 focus:border-transparent " + (errors.password?.message ? "border-red-500 focus:ring-red-500 text-destructive" : "border-white/20 focus:ring-primary text-white")}
           />

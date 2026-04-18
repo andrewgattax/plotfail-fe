@@ -1,5 +1,8 @@
 import {useEffect, useState} from "react";
 import {ApiError, type TemplateCompactResponse, templateService} from "@/api";
+import {useUser} from "@/context/UserContext.tsx";
+import {Button} from "@/components/ui/button.tsx";
+import {LogOut} from "lucide-react";
 
 
 export function Home() {
@@ -27,9 +30,21 @@ export function Home() {
     getTemplates();
   }, []);
 
+  const {user, logout} = useUser();
+
   return (
     <div className="h-full flex flex-col items-center justify-start w-full">
-      <h1 className="text-3xl font-bold text-primary mt-8">Templates</h1>
+      <div className={"w-full flex justify-between items-center p-6"}>
+        <h1 className="text-3xl font-bold text-primary">Templates</h1>
+        {user && (
+          <Button onClick={logout}>
+            <LogOut className="size-6"/>
+          </Button>
+        )}
+      </div>
+      { user && (
+        <h1 className="text-3xl font-bold text-primary mt-8">Benvenuto {user.username}</h1>
+      )}
       {loading ? (
         <p className="text-foreground/50 mt-4">Caricamento...</p>
       ) : serverError ? (

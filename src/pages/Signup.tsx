@@ -26,6 +26,7 @@ function Signup() {
     })
 
     const onSubmit = async (data: SignupData) => {
+        setServerError("")
         try {
             await utenteService.signup(data)
             await router.navigate("/login")
@@ -54,6 +55,7 @@ function Signup() {
                   <input
                       type={"text"}
                       placeholder={"Username"}
+                      autoComplete="username"
                       {...register("username")}
                       className={"w-full bg-white/5 border rounded-2xl p-4 text-sm focus:outline-none focus:ring-2 focus:border-transparent " + (errors.username?.message ? "border-red-500 focus:ring-red-500 text-destructive" : "border-white/20 focus:ring-primary text-white")}
                   />
@@ -63,6 +65,7 @@ function Signup() {
                   <input
                       type={"password"}
                       placeholder={"Password"}
+                      autoComplete="new-password"
                       {...register("password")}
                       className={"w-full bg-white/5 border rounded-2xl p-4 text-sm focus:outline-none focus:ring-2 focus:border-transparent " + (errors.password?.message ? "border-red-500 focus:ring-red-500 text-destructive" : "border-white/20 focus:ring-primary text-white")}
                   />
@@ -72,6 +75,7 @@ function Signup() {
                   <input
                       type={"password"}
                       placeholder={"Conferma Password"}
+                      autoComplete="new-password"
                       {...register("verificaPassword")}
                       className={"w-full bg-white/5 border rounded-2xl p-4 text-sm focus:outline-none focus:ring-2 focus:border-transparent " + (errors.verificaPassword?.message ? "border-red-500 focus:ring-red-500 text-destructive" : "border-white/20 focus:ring-primary text-white")}
                   />

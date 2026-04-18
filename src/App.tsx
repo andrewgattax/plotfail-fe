@@ -1,12 +1,11 @@
-import { RouterProvider } from "react-router-dom";
+import { RouterProvider } from "react-router";
 import { router } from "./routes";
-import Background from "@/components/background.tsx";
+import {UserProvider} from "./context/UserContext";
 
 export default function App() {
   return (
-    <main className={"relative flex flex-col h-screen overflow-y-hidden overscroll-none"}>
-      <Background />
+    <UserProvider>
       <RouterProvider router={router} />
-    </main>
+    </UserProvider>
   );
 }

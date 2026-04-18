@@ -1,0 +1,10 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* Utility class for single-line text to fix vertical alignment */
+.single-line {
+  display: flex;
+  /*align-items: center;*/
+  line-height: 1;
+}
