@@ -7,6 +7,9 @@ class UtenteService {
     return post<LoginResponse>("/utente/login", body)
   }
 
+  async signup(body: any) {
+    return post<void>("/utente/signup", body)
+  }
 }
 
 export const utenteService = new UtenteService()

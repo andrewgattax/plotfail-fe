@@ -1,30 +1,30 @@
 import React, {useState} from 'react';
-import {LoaderCircle, Wand2} from "lucide-react";
-import {LoginRequestSchema} from "@/api/schemas.ts";
-import {useForm} from "react-hook-form";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {z} from "zod";
-import {Button} from "@/components/ui/button.tsx";
-import {ApiError, utenteService} from "@/api";
-import {router} from "@/routes.tsx";
-import {Link} from "react-router-dom";
+  import {LoaderCircle, Wand2} from "lucide-react";
+  import {LoginRequestSchema} from "@/api/schemas.ts";
+  import {useForm} from "react-hook-form";
+  import {zodResolver} from "@hookform/resolvers/zod";
+  import {z} from "zod";
+  import {Button} from "@/components/ui/button.tsx";
+  import {ApiError, utenteService} from "@/api";
+  import {router} from "@/routes.tsx";
+  import {Link} from "react-router-dom";
 
-function Login() {
+  function Login() {
 
-  type LoginData = z.infer<typeof LoginRequestSchema>
+    type LoginData = z.infer<typeof LoginRequestSchema>
 
-  const [serverError, setServerError] = useState("");
+    const [serverError, setServerError] = useState("");
 
-  const {
-    register,
-    handleSubmit,
-    formState: {
-      errors, isSubmitting
-    }
-  } = useForm<LoginData>({
-    resolver: zodResolver(LoginRequestSchema),
-    mode: "onTouched"
-  })
+    const {
+      register,
+      handleSubmit,
+      formState: {
+        errors, isSubmitting
+      }
+    } = useForm<LoginData>({
+      resolver: zodResolver(LoginRequestSchema),
+      mode: "onTouched"
+    })
 
   const onSubmit = async (data: LoginData) => {
     try {
