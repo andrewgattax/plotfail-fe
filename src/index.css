@@ -140,4 +140,8 @@
   .text-glow-primary {
     text-shadow: 0 0 15px var(--color-primary);
   }
+
+  .text-glow-destructive {
+    text-shadow: 0 0 15px var(--color-destructive);
+  }
 }
