@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
 
 # Build the application
-RUN pnpm build
+RUN npm run build
 
 # Production stage
 FROM nginx:alpine
