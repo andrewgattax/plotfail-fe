@@ -23,11 +23,30 @@ const apiClient: AxiosInstance = axios.create({
 
 apiClient.interceptors.response.use(
   (response) => response,
-  (error: AxiosError<ErrorResponse>) => {
+  async (error: AxiosError<ErrorResponse>) => {
+    // Handle 401 Unauthorized
+    if (error.response?.status === 401) {
+      // Clear user data from localStorage
+      localStorage.removeItem('user')
+
+      // Call logout endpoint without waiting for response
+      // Use apiClient directly to avoid potential loops
+      apiClient.post('/utente/logout', {}).catch((err) => {
+        // Ignore errors from logout call - we're redirecting anyway
+        console.error('Logout call failed:', err)
+      })
+
+      // Redirect to login page
+      window.location.href = '/login'
+
+      // Return a rejected promise to prevent further processing
+      return Promise.reject(error)
+    }
+
     if (error.response?.data) {
       throw new ApiError(error.response.data)
     }
-    
+
     throw new ApiError({
       message: error.message || 'An unexpected error occurred',
       error: 'UNKNOWN_ERROR',

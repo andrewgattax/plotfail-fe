@@ -22,6 +22,8 @@ export interface StoriaCompactResponse {
   id: number
   titolo: string
   categoria: string  // "FUNNY" | "DARK" | "SAD"
+  autore: string
+  preview: string
   public: boolean
 }
 
@@ -40,4 +42,16 @@ export interface CreaStoriaRequest {
   contenuto: string
   templateId: number
   pubblico?: boolean
+}
+
+// Template types from openapi-docs.json
+export interface TemplateResponse {
+  id: number
+  titolo: string
+  contenuto: string
+  categoria: string  // "FUNNY" | "DARK" | "SAD"
+  status: string  // "PROCESSING" | "COMPLETED" | "FAILED"
+  storieCreateCount: number
+  used: boolean
+  saved: boolean
 }

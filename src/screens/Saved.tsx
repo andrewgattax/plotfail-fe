@@ -31,7 +31,7 @@ export function Saved() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="flex flex-col items-center justify-center h-72 text-center border-2 border-dashed border-white/20 bg-white/5 rounded-[2rem] backdrop-blur-sm"
+              className="flex flex-col py-6 items-center justify-center text-center border-2 border-dashed border-white/20 bg-white/5 rounded-[2rem] backdrop-blur-sm"
             >
               <FolderOpen className="w-20 h-20 text-slate-500 mb-6 drop-shadow-white-glow-sm" />
               <h2 className="text-2xl font-bold text-white mb-3">No saved stories yet!</h2>

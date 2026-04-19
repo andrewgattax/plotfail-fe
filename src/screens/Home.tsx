@@ -37,7 +37,7 @@ export function Home() {
       <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 px-6 py-4 max-w-md mx-auto"
+        className="fixed top-0 left-0 right-0 z-50 px-6 py-4  mx-auto"
       >
         <div className="flex justify-between items-center">
           <div>
@@ -62,7 +62,7 @@ export function Home() {
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="p-6 space-y-10 pt-32"
+        className="p-6 space-y-10 pt-28"
       >
         <section className="relative">
           <div className="absolute inset-0 bg-gradient-to-br from-violet-600/30 to-pink-600/30 rounded-[2rem] blur-xl translate-y-2 translate-x-2"></div>

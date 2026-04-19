@@ -5,9 +5,10 @@ import { Generate } from "@/screens/Generate";
 import { FillStory } from "@/screens/FillStory";
 import { Result } from "@/screens/Result";
 import { Saved } from "@/screens/Saved";
-import { Explore } from "@/screens/Explore";
+import Explore from "@/screens/Explore.tsx";
 import { Profile } from "@/screens/Profile";
 import { StoryDetail } from "@/screens/StoryDetail";
+import { TemplateDetail } from "@/screens/TemplateDetail";
 import { Login } from "@/screens/Login";
 import { NotFound } from "@/screens/NotFound";
 import { ProtectedRoute } from "./components/utils/ProtectedRoute";
@@ -31,6 +32,7 @@ export const router = createBrowserRouter([
         )
       },
       { path: "story/:id", Component: StoryDetail },
+      { path: "template/:id", Component: TemplateDetail },
       { path: "*", Component: NotFound },
     ],
   },

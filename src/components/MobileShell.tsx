@@ -4,7 +4,7 @@ import { clsx } from "clsx";
 
 export function MobileShell() {
   return (
-    <div className="flex flex-col h-screen max-w-md mx-auto bg-slate-950 text-slate-200 relative overflow-hidden font-[Nunito]">
+    <div className="flex flex-col h-screen mx-auto bg-slate-950 text-slate-200 relative overflow-hidden font-[Nunito]">
       {/* Dark modern background effects */}
       <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
       <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[50%] bg-violet-600/20 rounded-full blur-[120px] pointer-events-none" />
