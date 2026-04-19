@@ -11,6 +11,7 @@ import { StoryDetail } from "@/screens/StoryDetail";
 import { TemplateDetail } from "@/screens/TemplateDetail";
 import { Login } from "@/screens/Login";
 import { NotFound } from "@/screens/NotFound";
+import { SearchPage } from "@/screens/SearchPage.tsx";
 import { ProtectedRoute } from "./components/utils/ProtectedRoute";
 
 export const router = createBrowserRouter([
@@ -23,6 +24,7 @@ export const router = createBrowserRouter([
       { path: "generate", Component: Generate },
       { path: "saved", Component: Saved },
       { path: "explore", Component: Explore },
+      { path: "search", Component: SearchPage },
       {
         path: "profile",
         Component: () => (

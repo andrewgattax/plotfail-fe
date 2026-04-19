@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
-import {BookOpen, Bookmark, Flame, Loader2, Play} from "lucide-react";
+import {BookOpen, Bookmark, Flame, Loader2, Play, Search} from "lucide-react";
 import { clsx } from "clsx";
 import { ApiError, type TemplateCompactResponse, type StoriaCompactResponse, templateService, storiaService } from "@/api";
 
 function Explore() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<"storie" | "template">("storie");
   const [categoryFilter, setCategoryFilter] = useState<"All" | "FUNNY" | "DARK" | "SAD">("All");
   const [stories, setStories] = useState<StoriaCompactResponse[]>([]);
@@ -141,7 +142,7 @@ function Explore() {
       </div>
 
       {/* Content Area */}
-      <div className="flex-1 overflow-y-auto p-6 pt-56 space-y-6 pb-24 z-10 hide-scrollbar">
+      <div className="flex-1 overflow-y-auto p-6 pt-56 space-y-6 pb-10 z-10 hide-scrollbar">
         <AnimatePresence mode="wait">
           {activeTab === "storie" ? (
             <motion.div
@@ -260,6 +261,14 @@ function Explore() {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Floating Search Button */}
+      <button
+        onClick={() => navigate("/search")}
+        className="fixed bottom-34 right-6 z-50 w-16 h-16 bg-white/10 backdrop-blur-sm text-white/80 rounded-full flex items-center border border-white/30 justify-center shadow-white-glow hover:shadow-lime-glow-strong transition-all active:scale-95"
+      >
+        <Search className="w-7 h-7 " />
+      </button>
     </div>
   );
 }
