@@ -1,6 +1,7 @@
 import { Outlet, NavLink } from "react-router";
 import { Home, Compass, Bookmark, User } from "lucide-react";
 import { clsx } from "clsx";
+import { OfflineIndicator } from "./OfflineIndicator";
 
 export function MobileShell() {
   return (
@@ -12,6 +13,7 @@ export function MobileShell() {
 
       {/* Main Content Area */}
       <div className="flex-1 overflow-y-auto pb-24 z-10 relative">
+        <OfflineIndicator />
         <Outlet />
       </div>
 
